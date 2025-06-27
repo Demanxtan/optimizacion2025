@@ -1,0 +1,38 @@
+# Define los sets directamente
+set NODES := 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27; # 5 depósitos + 22 clientes = 27 nodos totales
+set DEPOTS := 1, 2, 3, 4, 5;          # Nodos 1 al 5 son depósitos
+set CLIENTS := 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27;        # Nodos 6 al 27 son clientes (5+1=6 hasta 22+5=27)
+
+# Asumiendo 5 vehículos
+set VEHICLES := 1, 2, 3, 4, 5; # Si tienes 5 depósitos y 5 vehículos, asumo uno por depósito
+
+
+param Q_CAPACITY := 4500; # Capacidad máxima por vehículo
+
+
+# Coordenadas X e Y para todos los nodos
+# Primero los 5 depósitos, luego los 22 clientes
+param coord_x :=
+  1 244  2 263  3 234  4 225  5 320
+  6 295  7 301  8 309  9 217 10 218
+ 11 282 12 242 13 230 14 249 15 256
+ 16 265 17 267 18 259 19 315 20 329
+ 21 318 22 329 23 267 24 275 25 303
+ 26 208 27 326;
+
+param coord_y :=
+  1 248  2 218  3 210  4 246  5 221
+  6 272  7 258  8 260  9 274 10 278
+ 11 267 12 249 13 262 14 268 15 267
+ 16 257 17 242 18 265 19 233 20 252
+ 21 252 22 224 23 213 24 192 25 201
+ 26 217 27 181;
+
+# Demandas de los clientes
+# (Corresponden a los 22 clientes, nodos 6 al 27)
+param demand :=
+   6 125   7 84    8 60    9 500  10 300
+  11 175  12 350  13 150  14 1100 15 4100
+  16 225  17 300  18 250  19 500  20 150
+  21 100  22 250  23 120  24 600  25 500
+  26 175  27 75;
